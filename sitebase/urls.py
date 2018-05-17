@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+from pyPhoto import views as pyPhotoView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^photos/(?P<pk>[0-9]+)/$', pyPhotoView.detail),
+    url(r'^hello/$', pyPhotoView.hello),
+    url(r'^all/',pyPhotoView.displayImageGrid),
 ]
+
+urlpatterns += static('/upload_files/', document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<html><!-- Header -->
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'pyPhoto/css/style.css' %}" />
+        <title>Image Grid</title>
+    </head>
+
+<div class="header">
+    <h1>Image Grid</h1>
+    <p>Image Grid using Django</p>
+</div>
+
+<div class="row"> 
+    <div class="column">
+        {% for image in image1 %}
+            {{ image | safe }}
+        {% endfor %}
+    </div>
+    <div class="column">
+        {% for image in image2 %}
+            {{ image | safe }}
+        {% endfor %}
+    </div> 
+  </div>
+
+</html>
+
